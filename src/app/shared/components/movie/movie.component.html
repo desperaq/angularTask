@@ -1,0 +1,54 @@
+<div class="col-12 col-md-12 col-sm-12 col-lg-12">
+  <h1>Movies</h1>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-lg-3 col-md-4 col-xs-12" *ngFor="let movie of allMovies">
+      <div class="item">
+        <div class=" mb-r">
+          <!--Card-->
+          <div class="card card-cascade wider">
+            <!--Card image-->
+            <a>
+              <div class="view overlay hm-white-slight">
+                <img [src]="movie.image" class="img-fluid" alt="" width="360px" height="640px">
+                <a>
+                  <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+                </a>
+              </div>
+            </a>
+            <!--/.Card image-->
+            <!--Card content-->
+            <div class="card-body text-center no-padding">
+              <!--Category & Title-->
+              <h5 class="card-title">
+                <strong>
+                  <a>{{ movie.title }}</a>
+                </strong>
+              </h5>
+
+              <h6>Cast</h6>
+              <p class="card-text">{{ movie.cast }}
+              </p>
+              <!--Description-->
+              <h6>Description</h6>
+              <p class="card-text">{{ movie.description }}
+              </p>
+
+              <!--Card footer-->
+              <div class="card-footer">
+                <span class="left">Rating: {{movie.rating}} </span>
+                <span class="right">
+                  <a>
+                    <app-rating [rating]='movie.rating' [itemId]='movie.id'
+                      (ratingClick)='ratingComponentClick($event)'></app-rating>
+                  </a>
+                </span>
+              </div>
+            </div>
+            <!--/.Card content-->
+          </div>
+          <!--/.Card-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
